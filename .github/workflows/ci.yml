@@ -98,16 +98,16 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.vagrant.d
-          key: ${{ matrix.box }}-vagrant-boxes-20230425-${{ hashFiles('ci/Vagrantfile') }}
+          key: ${{ matrix.box }}-vagrant-boxes-20230925-${{ hashFiles('ci/Vagrantfile') }}
           restore-keys: |
-            ${{ matrix.box }}-vagrant-20230425-
+            ${{ matrix.box }}-vagrant-20230925-
       - name: Cache Cargo and build artifacts
         uses: actions/cache@v3
         with:
           path: build-artifacts.tar
-          key: ${{ matrix.box }}-cargo-20230425-${{ hashFiles('**/Cargo.lock') }}
+          key: ${{ matrix.box }}-cargo-20230925-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: |
-            ${{ matrix.box }}-cargo-20230425-
+            ${{ matrix.box }}-cargo-20230925-
       - name: Set up VM
         run: |
           ln -sf ci/Vagrantfile Vagrantfile
